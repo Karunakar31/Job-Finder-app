@@ -1,5 +1,5 @@
 const validateNewUser = (req, res, next) => {
-  
+
     const {name, email, password} = req.body
     if(!name || !email || !password){
         return res.status(400).json({
@@ -10,7 +10,7 @@ const validateNewUser = (req, res, next) => {
     //regularExpression to validate email
     if(!emailRegex.test(email)){
         return res.status(400).json({
-           message: 'Please provide a valid email address'
+        message: 'Please provide a valid email address'
         })
     }
     next();

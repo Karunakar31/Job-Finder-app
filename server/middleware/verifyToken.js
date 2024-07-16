@@ -11,7 +11,7 @@ const verifyToken = (req, res ,next) => {
         next();
         // bearer 3eduiqnfoceuib398q9fh0hcbaicb   -  this will be the value of the token variable and we need to extract 1st array element when we split
     }catch(error){
-       return res.status(401).json({message: 'Token Not Found'});
+    return res.status(401).json({message: 'Token Not Found'});
     }
 }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Login } from "../api/User";
 import { Navigate } from "react-router-dom";
+import { Toaster, toast } from 'react-hot-toast';
 import styles from "./LoginPage.module.css";
 
 function LoginPage({ setCurrentUser }) {
@@ -26,11 +27,14 @@ function LoginPage({ setCurrentUser }) {
 			localStorage.setItem("token", response.data.token);
 			localStorage.setItem('user', response.data.id);
 			setRedirectToHome(true);
+		} else {
+            toast.error('User not found');
 		}
 	};
 
 	return (
 		<div className={styles.container}>
+		<Toaster position="top-center" reverseOrder={false} />
 			<div className={styles.leftSide}>
 				<h1 className={styles.header}>Already have an account?</h1>
 				<p className={styles.subheader}>Your personal job finder is here</p>
