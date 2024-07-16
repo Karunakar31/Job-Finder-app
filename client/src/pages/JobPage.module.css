@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    flex-direction: columns; 
+    justify-content :center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    width  : 80%;
+    height: 130px;
+    background-color: white;
+    display: flex;
+    justify-content :center;
+    align-items: center; border-radius: 0.125rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); 
+}

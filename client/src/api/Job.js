@@ -1,0 +1,87 @@
+import axios from 'axios';
+
+const BACKEND_ORIGIN_URL = 'https://job-finder-app-eta.vercel.app/';
+
+const fetchJobs = async () => {
+    try {
+        const response = await axios.get(`/job`);
+        return response;
+    } catch (error) {
+        return error;
+    }
+};
+
+const fetchJobsByQuery = async (query) => {
+    const {
+        title,
+        skills
+    } = query;
+    console.log(skills);
+    try {
+        const response = await axios.get(`/job`, {
+            params: {
+                title:title.trim(),
+                skills
+            }
+        });
+        return response;
+    } catch (error) {
+        return error.response.data;
+    }
+};
+
+const fetchJobById = async (id) => {
+    try {
+        const response = await axios.get(`/job/${id}`);
+        return response;
+    } catch (error) {
+        return error;
+    }
+};
+
+const createJob = async (job) => {
+    try {
+        const token = localStorage.getItem('token');
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        };
+        const response = await axios.post(`/job/add`, job, config);
+        return response;
+    } catch (error) {
+        return error;
+    }
+};
+
+const editJob = async (job) => {
+    try{
+        const token = localStorage.getItem('token');
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        };
+    const response = await axios.put(`/job/update/${job._id}`, job, config);
+    return response;
+    }catch(error){
+        return error;
+    }
+}
+
+const deleteJob = async (id) => {
+    try {
+        const token = localStorage.getItem('token');
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        };
+        const response = await axios.delete(`/job/delete/${id}`, config);
+        return response;
+    } catch (error) {
+        return error;
+    }
+}
+
+export { fetchJobs, fetchJobsByQuery, fetchJobById, createJob, editJob, deleteJob };
