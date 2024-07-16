@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Header } from "../components/Header";
-import { fetchJobById } from "../api/Job";
+import { fetchJobById, deleteJob } from "../api/Job";
 import { Toaster, toast } from 'react-hot-toast';
 import MoneyBill from '../assets/moneyBill.png';
 import Duration from '../assets/duration.png';
