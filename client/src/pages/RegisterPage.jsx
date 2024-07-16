@@ -102,7 +102,7 @@ function RegisterPage({ setCurrentUser }) {
 			/>{errors.password && <div className={styles.error}>{errors.password}</div>}
 			<div className={styles.checkbox}>
                 <input type="checkbox" name='terms&conditions' value={checkbox} onChange={() => setCheckbox(true)} onKeyDown={handleKeyDown}/>
-                <label htmlFor="terms&conditions" >By creating an account, I agree to our terms of use and privacy policy</label>
+                <label htmlFor="terms&conditions" > By creating an account, I agree to our terms of use and privacy policy</label>
                         </div>
 			<div>{errors.checkbox && <div className={styles.error}>{errors.checkbox}</div>}
 			</div>
