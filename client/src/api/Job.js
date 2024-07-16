@@ -1,8 +1,8 @@
 import axios from 'axios';
-
+const BACKEND_ORIGIN_URL = 'https://job-finder-app-mu.vercel.app';
 const fetchJobs = async () => {
     try {
-        const response = await axios.get(`/job`);
+        const response = await axios.get(`${BACKEND_ORIGIN_URL}/job`);
         return response;
     } catch (error) {
         return error;
@@ -16,7 +16,7 @@ const fetchJobsByQuery = async (query) => {
     } = query;
     console.log(skills);
     try {
-        const response = await axios.get(`/job`, {
+        const response = await axios.get(`${BACKEND_ORIGIN_URL}/job`, {
             params: {
                 title:title.trim(),
                 skills
@@ -30,7 +30,7 @@ const fetchJobsByQuery = async (query) => {
 
 const fetchJobById = async (id) => {
     try {
-        const response = await axios.get(`/job/${id}`);
+        const response = await axios.get(`${BACKEND_ORIGIN_URL}/job/${id}`);
         return response;
     } catch (error) {
         return error;
@@ -60,7 +60,7 @@ const editJob = async (job) => {
                 Authorization: `Bearer ${token}`
             }
         };
-    const response = await axios.put(`/job/update/${job._id}`, job, config);
+    const response = await axios.put(`${BACKEND_ORIGIN_URL}/job/update/${job._id}`, job, config);
     return response;
     }catch(error){
         return error;
@@ -75,7 +75,7 @@ const deleteJob = async (id) => {
                 Authorization: `Bearer ${token}`
             }
         };
-        const response = await axios.delete(`/job/delete/${id}`, config);
+        const response = await axios.delete(`${BACKEND_ORIGIN_URL}/job/delete/${id}`, config);
         return response;
     } catch (error) {
         return error;
