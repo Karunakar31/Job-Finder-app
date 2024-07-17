@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "redirects": [
+    { "source": "/login", "destination": "https://job-finder-app-mu.vercel.app/login", "permanent": true },
+    { "source": "/register", "destination": "https://job-finder-app-mu.vercel.app/register", "permanent": true }
+  ],
   "builds": [
     {
       "src": "index.js",
