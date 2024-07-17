@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Login, Register } from "../api/User";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import styles from "./RegisterPage.module.css";
 
 
@@ -14,7 +14,6 @@ function RegisterPage({ setCurrentUser }) {
 	const [checkbox, setCheckbox] = useState(false);
     const [errors, setErrors] = useState({});
 	const [showLoginRedirect, setShowLoginRedirect] = useState(false);
-	const navigate = useNavigate();
 
 	const validate = () => {
         const errors = {};
@@ -111,9 +110,7 @@ function RegisterPage({ setCurrentUser }) {
 			{showLoginRedirect && <Navigate to="/" />}
 			<div
 				className={styles.signupRedirect}
-				onClick={() => {
-					navigate("/login");
-				}}
+				onClick={() => (window.location.href = "/login")}
 				>
 			Already have an account? <b><u>Sign In</u></b></div>
 		</div>

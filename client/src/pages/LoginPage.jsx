@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Login } from "../api/User";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Toaster, toast } from 'react-hot-toast';
 import styles from "./LoginPage.module.css";
 
@@ -8,7 +8,6 @@ function LoginPage({ setCurrentUser }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [redirectToHome, setRedirectToHome] = useState(false);
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		const storedEmail = localStorage.getItem("email");
@@ -58,9 +57,7 @@ function LoginPage({ setCurrentUser }) {
 				</button>
 				<div
 					className={styles.signupRedirect}
-					onClick={() => {
-						navigate("/signup");
-					}}
+					onClick={() => (window.location.href = "/signup")}
 				>
 					Don't have an account? <b><u>Sign Up</u></b>
 				</div>
