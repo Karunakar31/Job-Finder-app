@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACKEND_ORIGIN_URL = 'https://job-finder-app-mu.vercel.app';
+const BACKEND_ORIGIN_URL = import.meta.env.VITE_API_BASE_URL;
 
 
 const Login = async (email, password) => {

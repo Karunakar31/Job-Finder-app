@@ -33,11 +33,8 @@ app.get('/health', (req,res)=>{
     })
 })
 
-app.use("*", (req, res) => {
-    res.status(404).json({
-        message: 'Endpoint not found',
-        status: 'Error',
-    });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.use(errorHandler);
