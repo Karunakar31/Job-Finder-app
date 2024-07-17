@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACKEND_ORIGIN_URL = import.meta.env.VITE_API_BASE_URL;
+const BACKEND_ORIGIN_URL = 'http://localhost:3000' || import.meta.env.VITE_API_BASE_URL;
 
 
 const Login = async (email, password) => {

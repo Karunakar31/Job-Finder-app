@@ -42,7 +42,7 @@ const EditJobPage = () => {
         if (UserId == job.refUserId) {
             const response = await editJob(job);
             if (response.status === 200) {
-                toast.success('Job added successfully');
+                toast.success('Job updated successfully');
                 setJob({
                     companyName: "",
                     title: "",

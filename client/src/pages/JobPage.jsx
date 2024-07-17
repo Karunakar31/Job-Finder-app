@@ -70,11 +70,16 @@ const confirmDeleteJob = async () => {
 			const response = await deleteJob(job._id);
 			console.log(response);
 			if (response.status == 200) {
-			navigate('/');
+			toast.success('Job deleted successfully');
+			setTimeout(()=> {
+				navigate('/');
+				console.log('Timed out Started')
+			}, 2000);
 			}
 		}
+		else {
 		toast.error('You are not authorized');
-		setShowModal(false);
+		setShowModal(false);}
 		} catch (error) {
 		console.log(error);
 		return response.status;
