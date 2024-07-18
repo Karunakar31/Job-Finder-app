@@ -23,5 +23,5 @@ Welcome to the Job Finder App! This is a full-stack application built using the 
 - **Authentication**: JWT (JSON Web Tokens)
 - **Styling**: Tailwind CSS 
 
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
