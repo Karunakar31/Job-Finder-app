@@ -10,7 +10,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-app.use(cors());
+app.use(cors({origin: 'https://quiz-builder-front.vercel.app'}));
 app.use(express.json())
 
 app.use(express.static(path.join(__dirname, 'public')));
